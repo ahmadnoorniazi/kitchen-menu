@@ -4,12 +4,16 @@ import { InputText } from 'primereact/inputtext';
 import { InputNumber } from 'primereact/inputnumber';
 import Box from '../../components/Box'
 import { Button } from 'primereact/button';
-
+import { useHistory } from 'react-router-dom'
 const Info = () => {
+    const history = useHistory()
+
+    const onNext = () => {
+        history.push('/cuisine')
+    }
 
     return (
         <Box>
-
             <div style={{ marginTop: "100px" }}>
                 <h1 style={{ fontWeight: "bold", textAlign: "center" }}>Tell us a little more about you.</h1>
                 <h2 style={{ fontWeight: "bold" }}>Your Business</h2>
@@ -45,7 +49,7 @@ const Info = () => {
                     </div>
                 </div>
                 <div style={{ textAlign: 'center' }} >
-                    <Button style={{ paddingRight: "30px", paddingLeft: "30px" }} label="Next" />
+                    <Button onClick={onNext} style={{ paddingRight: "30px", paddingLeft: "30px" }} label="Next" />
                 </div>
                 <div style={{ textAlign: 'center', marginTop: "20px" }}>
                     Need more info?<a href="">Set up a phone call</a>

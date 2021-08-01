@@ -12,15 +12,15 @@ const routes = [
         breadcrumbName: 'Info',
     },
     {
-        path: 'first',
+        path: 'cuisine',
         breadcrumbName: 'Cuisine',
     },
     {
-        path: 'second',
+        path: 'menu',
         breadcrumbName: 'Menu',
     },
     {
-        path: 'second',
+        path: 'items',
         breadcrumbName: 'Items',
     },
     {
@@ -43,7 +43,7 @@ function ItemRender(route, params, routes, paths) {
     return last ? (
         <span className={`breadcrump-item ${location.pathname.includes(route.path) ? 'breadcrump-item-active' : ""}`}>{route.breadcrumbName}</span>
     ) : (
-        <Link className={`breadcrump-item ${location.pathname.includes(route.path) ? 'breadcrump-item-active' : ""}`} to={paths.join('/')}>{route.breadcrumbName}</Link>
+        <Link className={`breadcrump-item ${location.pathname.includes(route.path) ? 'breadcrump-item-active' : ""}`} to={route.path}>{route.breadcrumbName}</Link>
     );
 }
 

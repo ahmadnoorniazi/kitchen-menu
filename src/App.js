@@ -2,6 +2,9 @@ import logo from './logo.svg';
 import 'antd/dist/antd.css';
 import './App.css';
 import Info from './containers/Info'
+import Cuisine from './containers/Cuisine'
+import Menu from './containers/Menu/index'
+import Items from './containers/Items'
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,6 +27,15 @@ function App() {
       <Switch>
         <Route path="/info">
           <Info />
+        </Route>
+        <Route path="/cuisine">
+          <Cuisine />
+        </Route>
+        <Route path="/menu">
+          <Menu />
+        </Route>
+        <Route path="/items">
+          <Items />
         </Route>
         <Route path="/">
           <Redirect to="/info" />
