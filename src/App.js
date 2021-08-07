@@ -5,6 +5,7 @@ import Info from './containers/Info'
 import Cuisine from './containers/Cuisine'
 import Menu from './containers/Menu/index'
 import Items from './containers/Items'
+import ConfirmModal from './containers/Confirm'
 import {
   BrowserRouter as Router,
   Switch,
@@ -36,6 +37,9 @@ function App() {
         </Route>
         <Route path="/items">
           <Items />
+        </Route>
+        <Route path="/confirm">
+          <ConfirmModal />
         </Route>
         <Route path="/">
           <Redirect to="/info" />
