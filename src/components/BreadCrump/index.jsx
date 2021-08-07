@@ -24,11 +24,7 @@ const routes = [
         breadcrumbName: 'Items',
     },
     {
-        path: 'second',
-        breadcrumbName: 'Modifiers',
-    },
-    {
-        path: 'second',
+        path: 'confirm',
         breadcrumbName: 'Confirm',
     },
 ];
