@@ -1,18 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Box from '../../components/Box'
 import { Button } from 'primereact/button';
-import Menu from '../../components/Menu';
 import { useHistory } from 'react-router-dom'
 import { Image, Avatar } from 'antd';
+import ConfirmModal from '../../components/ConfirmModal'
 const style = { background: "#FFFFFF", padding: "2.5rem 2rem", textAlign: "center", fontWeight: "bold", fontSize: "18px", border: "1px solid #D3D3D3", borderRadius: "5px" };
 const columnStyle = { marginBottom: "15px" }
 
 const Cuisine = () => {
 
     const history = useHistory()
+    const [visible, setVisible] = useState(false)
 
     const onNext = () => {
         history.push('/items')
+    }
+
+    const handleOkay = () => {
+        setVisible(false)
+    }
+
+    const handleCancel = () => {
+        setVisible(false)
     }
 
     const menuItem = () => {
@@ -30,6 +39,14 @@ const Cuisine = () => {
 
     return (
         <div style={{ position: "relative" }}>
+            <ConfirmModal isModalVisible={visible} handleOk={handleOkay} handleCancel={handleCancel} >
+                <div style={{ padding: "15px" }} >
+                    <p style={{ fontSize: "16px", fontWeight: "bold", textAlign: "center", marginBottom: "10px" }}>You’re one step closer to more sales</p>
+                    <p>Our team will review your menu and reach out shortly. If you have any questions reach out to sales@futurefoods.io</p>
+                    <Button style={{ paddingRight: "30px", paddingLeft: "30px", width: "100%" }} label="Sounds Good" onClick={() => setVisible(true)} />
+
+                </div>
+            </ConfirmModal>
             <Box>
                 <div style={{ marginTop: "100px" }}>
                     <h1 style={{ fontWeight: "800", textAlign: "center", marginBottom: 0 }}>We made it.</h1>
@@ -78,7 +95,7 @@ const Cuisine = () => {
             </Box>
             <div>
                 <div style={{ textAlign: 'center', marginTop: "15px", position: 'fixed', width: "100%", bottom: 0, background: "#D3D3D3", padding: "10px", display: "flex", justifyContent: "center" }} >
-                    <Button style={{ paddingRight: "30px", paddingLeft: "30px" }} label="I am done" />
+                    <Button style={{ paddingRight: "30px", paddingLeft: "30px" }} label="I am done" onClick={() => setVisible(true)} />
                 </div>
             </div>
         </div >

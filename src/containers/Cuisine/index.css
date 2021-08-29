@@ -7,12 +7,19 @@
     padding: 2.5rem 2rem;
      text-align: center;
      font-weight: bold ;
-     font-size: 18px;
+     font-size: 14px;
      border: 1px solid #D3D3D3;
      border-radius: "5px" ;
+     margin-bottom: 15px
+
 }
 
 .main-box:hover{
     color: #40a9ff;
     border-color: #40a9ff;
+}
+
+.main-box-selected{
+    color: #40a9ff;
+    border-color: #40a9ff; 
 }

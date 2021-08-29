@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './index.css'
 import { InputText } from 'primereact/inputtext';
 import { InputNumber } from 'primereact/inputnumber';
 import Box from '../../components/Box'
 import { Button } from 'primereact/button';
 import { useHistory } from 'react-router-dom'
+
 const Info = () => {
     const history = useHistory()
+    const [formValues, setFormValues] = useState({})
+
+    const handleFormChange = (e) => {
+        setFormValues({ ...formValues, [e.target?.name]: e.target?.value })
+    }
 
     const onNext = () => {
-        history.push('/cuisine')
+        if (formValues["firstName"] && formValues["lastName"] && formValues["businessName"] && formValues["phoneNumber"] && formValues["streetAddress"] && formValues["email"]) {
+            history.push('/cuisine')
+        }
     }
+
+    console.log("formValues", formValues)
 
     return (
         <Box>
@@ -19,33 +29,33 @@ const Info = () => {
                 <h2 style={{ fontWeight: "bold" }}>Your Business</h2>
                 <div className="p-fluid">
                     <div className="p-field">
-                        <label className="input-label" htmlFor="firstname2">Business Name</label>
-                        <InputText id="firstname2" type="text" />
+                        <label className="input-label" htmlFor="businessName">Business Name</label>
+                        <InputText onChange={handleFormChange} name="businessName" id="businessName" type="text" />
                     </div>
                     <div className="p-field">
-                        <label className="input-label" htmlFor="lastname2">Street Address</label>
-                        <InputText id="lastname2" type="text" />
+                        <label className="input-label" htmlFor="streetAddress">Street Address</label>
+                        <InputText onChange={handleFormChange} name="streetAddress" id="streetAddress" type="text" />
                     </div>
                     <h2 style={{ fontWeight: "bold" }}>Your information</h2>
                     <div className="p-field">
-                        <label className="input-label" htmlFor="lastname2">Email</label>
-                        <InputText id="lastname2" type="text" />
+                        <label className="input-label" htmlFor="email">Email</label>
+                        <InputText onChange={handleFormChange} name="email" id="email" type="text" />
                     </div>
                 </div>
                 <div className="p-fluid p-formgrid p-grid">
                     <div className="p-field p-col-12 p-md-6">
-                        <label className="input-label" htmlFor="firstname6">Firstname</label>
-                        <InputText id="firstname6" type="text" />
+                        <label className="input-label" htmlFor="firstName">Firstname</label>
+                        <InputText onChange={handleFormChange} name="firstName" id="firstname6" type="text" />
                     </div>
                     <div className="p-field p-col-12 p-md-6">
-                        <label className="input-label" htmlFor="lastname6">Lastname</label>
-                        <InputText id="lastname6" type="text" />
+                        <label className="input-label" htmlFor="lastName">Lastname</label>
+                        <InputText onChange={handleFormChange} name="lastName" id="lastname6" type="text" />
                     </div>
                 </div>
                 <div className="p-fluid">
                     <div className="p-field">
                         <label className="input-label" htmlFor="firstname2">Phone Number</label>
-                        <InputNumber id="firstname2" type="text" />
+                        <InputText onChange={handleFormChange} name="phoneNumber" id="firstname2" type="text" />
                     </div>
                 </div>
                 <div style={{ textAlign: 'center' }} >

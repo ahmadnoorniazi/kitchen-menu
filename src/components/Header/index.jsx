@@ -8,7 +8,7 @@ const { Header, Content, Footer } = Layout;
 const HeaderComponent = () => {
     return (
         <Header style={{
-            position: 'fixed', zIndex: 1, width: '100%', padding: "10px", borderBottom: " 2px solid #D3D3D3", background: "gray"
+            position: 'fixed', zIndex: 1, width: '100%', padding: "10px", borderBottom: " 2px solid #D3D3D3", background: "#F5F5F5"
 
         }}>
             <Box>
